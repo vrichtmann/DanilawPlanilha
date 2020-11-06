@@ -64,7 +64,7 @@ html {
   height: 100%;
   width: 100%;
   background-color: transparent;
-  grid-template-columns: 150px repeat(12, 1fr);
+  /* grid-template-columns: 150px repeat(100, 1fr); */
 }
 .gantt__row--lines span {
   display: block;
@@ -85,7 +85,8 @@ html {
   color: #fff;
   background-color: #0a3444 !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  grid-template-columns: 150px repeat(12, 1fr);
+  /* grid-template-columns: 150px repeat(100, 1fr); */
+  width: auto;
 }
 .gantt__row--months .gantt__row-first {
   border-top: 0 !important;
@@ -113,7 +114,7 @@ html {
   display: grid;
   padding: 9px 0;
   margin: 0;
-  grid-template-columns: repeat(12, 1fr);
+  /* grid-template-columns: repeat(100, 1fr); */
   grid-gap: 8px 0;
   border-top: 1px solid rgba(221, 221, 221, 0.8);
 }

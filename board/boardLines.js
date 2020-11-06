@@ -2,14 +2,12 @@
 
 var BoardLines = function(){
 
-    var mouthsArray = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
-
     this.createBoardLines = function(){
         var boardLines = "";
 
-        boardLines += "  <div class='gantt__row gantt__row--lines' data-month='509'>";
+        boardLines += "  <div class='gantt__row gantt__row--lines' style='grid-template-columns: 150px repeat("+ maxColunm +", 1fr);' data-month='509'>";
 
-        for(var i=0;i<mouthsArray.length;i++){
+        for(var i=0;i<maxColunm;i++){
             boardLines += "<span></span>";
         }
         boardLines += "  </div>";

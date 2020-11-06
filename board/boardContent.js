@@ -1,26 +1,21 @@
 
 var BoardContent = function(){
 
-    var testeJson = [{name:"Barnard Posselt", initTime: "4", finalTime: "11", color:"#7d3f80"}];
+    var testeJson = [{name:"Barnard Posselt", initTime: "1", finalTime: "11", color:"#7d3f80"}];
 
     this.createBoardContent = function(){
         var boardContentTXT = "";
-
-        console.log(excellJSON);
 
         for(var i=0; i < excellJSON[0].length; i++){
             boardContentTXT += "<div class='gantt__row'>";
             boardContentTXT += "       <div class='gantt__row-first'>"
             boardContentTXT += excellJSON[0][i]["Evento"];
             boardContentTXT += "        </div>"
-            boardContentTXT += "      <ul class='gantt__row-bars'>"
+            boardContentTXT += "      <ul class='gantt__row-bars' style='grid-template-columns: repeat("+ maxColunm +", 1fr);'>"
             boardContentTXT += "          <li style='grid-column: " + testeJson[0]["initTime"] +"/" + testeJson[0]["finalTime"] + "; background-color: " + testeJson[0]["color"] + ";'>Even longer project</li>"
             boardContentTXT += "      </ul>"
             boardContentTXT += "    </div>"
         }
-
-
-        
 
         return boardContentTXT;
     }

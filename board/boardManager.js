@@ -1,7 +1,8 @@
 
 
-var boardManager = function(){
+var maxColunm = 200;
 
+var boardManager = function(){
     this.boardTitle;
     this.boardColunm;
     this.boardLine;
