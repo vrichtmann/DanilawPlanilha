@@ -25,7 +25,7 @@ var boardManager = function(){
         newboard +=         this.boardContent.createBoardContent();
         newboard += "   </div>"
         newboard += "</div>";
-        $("#initScreen").html(newboard);
+        $("#mainContent").html(newboard);
     }
 
 }
