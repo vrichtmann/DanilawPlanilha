@@ -38,7 +38,7 @@ function readExcel(){
                 var bstr = arr.join("");
                 var workbook = XLSX.read(bstr, {type:"binary"});
                 
-                console.log("workbook.SheetNames : " + workbook.SheetNames[0].length);
+                //console.log("workbook.SheetNames : " + workbook.SheetNames[0].length);
 
                 //for(var i = 1; i < workbook.SheetNames[0].length + 1; i++){
                     var first_sheet_name = workbook.SheetNames[0];

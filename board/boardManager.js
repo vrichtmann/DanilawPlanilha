@@ -1,6 +1,6 @@
 
 
-var maxColunm = 200;
+var maxColunm = 50;
 
 var boardManager = function(){
     this.boardTitle;

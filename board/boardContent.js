@@ -5,6 +5,8 @@ var BoardContent = function(){
 
     this.createBoardContent = function(){
         var boardContentTXT = "";
+        
+        this.getInitialTime();
 
         for(var i=0; i < excellJSON[0].length; i++){
             boardContentTXT += "<div class='gantt__row'>";
@@ -18,6 +20,31 @@ var BoardContent = function(){
         }
 
         return boardContentTXT;
+    }
+
+    this.getInitialTime = function(){
+
+        var minYear = 9999999;
+        var maxYear = 0;
+
+        for(var i=0; i < excellJSON[0].length; i++){
+            var anoI = excellJSON[0][i]["AnoI"];
+            var mesI = excellJSON[0][i]["MêsI"];
+            var diaI = excellJSON[0][i]["DiaI"];
+
+            var anoF = excellJSON[0][i]["AnoF"];
+            var mesF = excellJSON[0][i]["MêsF"];
+            var diaF = excellJSON[0][i]["DiaF"];
+            
+            minYear = anoI < minYear ? anoI : minYear;
+            maxYear = anoF > maxYear ? anoF : maxYear;
+
+            console.log("Data INICIAL : " + diaI + " do " + mesI + " de " + anoI);
+            console.log("Data final : "+ diaF + " do " + mesF + " de " + anoF);
+
+            var date = new Date(); 
+            console.log(date.toUTCString())
+        }
     }
 }
 
