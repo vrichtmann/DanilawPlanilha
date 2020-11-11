@@ -1,6 +1,6 @@
 
 
-var maxColunm = 50;
+
 
 var boardManager = function(){
     this.boardTitle;
@@ -11,6 +11,7 @@ var boardManager = function(){
     this.init = function(){
         this.boardTitle = new BoardTitle();
         this.boardColunm = new BoardColumn();
+        this.boardColunm.getInitialTime();
         this.boardLine = new BoardLines();
         this.boardContent = new BoardContent();
         this.createBoardManager();
