@@ -10,12 +10,19 @@ var BoardContent = function(){
             var defaultMenssage = "";
             var description =  excellJSON[0][i]["Descrição"] == null ? defaultMenssage : excellJSON[0][i]["Descrição"];
 
+            var initMouth = board.boardColunm.getColumnByData(excellJSON[0][i]["DiaI"],excellJSON[0][i]["MêsI"],excellJSON[0][i]["AnoI"]);
+
+            var finalMouth = board.boardColunm.getColumnByData(excellJSON[0][i]["DiaF"],excellJSON[0][i]["MêsF"],excellJSON[0][i]["AnoF"]);
+
+            console.log("initMouth : " + initMouth);
+            console.log("finalMouth : " + finalMouth);
+
             boardContentTXT += "<div class='gantt__row'>";
             boardContentTXT += "       <div class='gantt__row-first'>";
             boardContentTXT += excellJSON[0][i]["Evento"];
             boardContentTXT += "        </div>";
             boardContentTXT += "      <ul class='gantt__row-bars' style='grid-template-columns: repeat("+ maxColunm +", 1fr);'>";
-            boardContentTXT += "          <li style='grid-column: " + testeJson[0]["initTime"] +"/" + testeJson[0]["finalTime"] + "; background-color: " + testeJson[0]["color"] + ";'>" + description + "</li>";
+            boardContentTXT += "          <li style='grid-column: " + initMouth + "/" + (finalMouth + 1) + "; background-color: rgb(" + excellJSON[0][i]["Color"] + ");'>" + description + "</li>";
             boardContentTXT += "      </ul>";
             boardContentTXT += "    </div>";
         }
@@ -24,7 +31,6 @@ var BoardContent = function(){
     }
 
 }
-
 
     //   <div class="wrapper">
     //      <div class="header">

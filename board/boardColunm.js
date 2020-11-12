@@ -1,5 +1,8 @@
 
 
+
+var tempMiniYear = 0;;
+
 var minYear = 2000000;
 var minMonth = 12;
 var minDay = 12;
@@ -28,9 +31,9 @@ var BoardColumn = function(){
             var nameColunm = "";
 
             if(maxColunm > 36){
-                if(cont == 0 || cont == 6)nameColunm = mouthsArray[cont] + "-" +minYear;
+                if(cont == 0 || cont == 6)nameColunm = mouthsArray[cont] + "-" +tempMiniYear;
             }else{
-                nameColunm = mouthsArray[cont] + "-" +minYear;
+                nameColunm = mouthsArray[cont] + "-" +tempMiniYear;
             }
 
             createBoardColunm += "   <span>" + nameColunm +"</span>";
@@ -38,7 +41,7 @@ var BoardColumn = function(){
             cont++;
             if(cont >= mouthsArray.length){
                 cont = 0;
-                minYear++;
+                tempMiniYear++;
             }
         }
         createBoardColunm += "  </div>";
@@ -90,6 +93,8 @@ var BoardColumn = function(){
             }
         }
 
+        tempMiniYear = minYear;
+
         console.log("minYear : " + minYear);
         console.log("minMonth : " + minMonth);
         console.log("minDay : " + minDay);
@@ -102,13 +107,20 @@ var BoardColumn = function(){
     }
 
     this.setDiffMouth = function(){
-        var yearDiff = (maxYear - (minYear + 1)) <= 0 ? 0 : (maxYear - (minYear + 1)) ;
-        var diffMouth = (13 - minMonth) + (yearDiff * 12) +  maxMonth;
+        // var yearDiff = (maxYear - (minYear + 1)) <= 0 ? 0 : (maxYear - (minYear + 1)) ;
+        // var diffMouth = (13 - minMonth) + (yearDiff * 12) +  maxMonth;
 
+        var yearDiff = (maxYear - minYear) 
+        var diffMouth = (yearDiff * 12 + 12);
+        // console.log("diffMouth : " + diffMouth)
         maxColunm = diffMouth;
     }
 
     this.getColumnByData = function(_day, _mounth, _year){
+        console.log("_day : " + _day + " _mounth: " + _mounth + " _year : " + _year);
 
+        var minYearDiff = (_year - minYear);
+        var targetMouth = (minYearDiff * 12) + _mounth;
+        return targetMouth;
     }
 }
