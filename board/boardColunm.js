@@ -102,13 +102,13 @@ var BoardColumn = function(){
     }
 
     this.setDiffMouth = function(){
-
         var yearDiff = (maxYear - (minYear + 1)) <= 0 ? 0 : (maxYear - (minYear + 1)) ;
         var diffMouth = (13 - minMonth) + (yearDiff * 12) +  maxMonth;
 
         maxColunm = diffMouth;
+    }
 
-        console.log("yearDiff : " + yearDiff);//58
-        console.log("diffMouth : " + diffMouth);
+    this.getColumnByData = function(_day, _mounth, _year){
+
     }
 }
