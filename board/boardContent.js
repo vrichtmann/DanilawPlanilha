@@ -14,9 +14,6 @@ var BoardContent = function(){
 
             var finalMouth = board.boardColunm.getColumnByData(excellJSON[0][i]["DiaF"],excellJSON[0][i]["MêsF"],excellJSON[0][i]["AnoF"]);
 
-            console.log("initMouth : " + initMouth);
-            console.log("finalMouth : " + finalMouth);
-
             boardContentTXT += "<div class='gantt__row'>";
             boardContentTXT += "       <div class='gantt__row-first'>";
             boardContentTXT += excellJSON[0][i]["Evento"];

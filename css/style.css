@@ -1801,6 +1801,8 @@ fluid .navbar-brand {
   font-weight: 600;
 }
 
+
+
 .post-sm .post-content .excerpts a span {
   font-weight: 600;
   font-size: 16px;
@@ -2566,5 +2568,9 @@ fluid .navbar-brand {
   position: absolute;
   top: 34px;
   left: 3px;
+}
+
+.yearHalf{
+  background-color: #e077771f;
 }
 

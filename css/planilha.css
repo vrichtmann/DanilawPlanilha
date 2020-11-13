@@ -65,6 +65,7 @@ html {
   width: 100%;
   background-color: transparent;
   /* grid-template-columns: 150px repeat(100, 1fr); */
+  margin-top: 83px;
 }
 .gantt__row--lines span {
   display: block;
