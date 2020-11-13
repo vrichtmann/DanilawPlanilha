@@ -51,7 +51,12 @@ var BoardColumn = function(){
 
     this.getInitialTime = function(){
 
-        for(var i=0; i < excellJSON[0].length; i++){
+        for(var i=0; i < excellJSON[0].length - 1; i++){
+
+            while(i < excellJSON[0].length - 1 && excellJSON[0][i]["AnoI"] ==null){
+                i++;
+            }
+
             var anoI = excellJSON[0][i]["AnoI"];
             var mesI = excellJSON[0][i]["MêsI"];
             var diaI = excellJSON[0][i]["DiaI"];
@@ -60,6 +65,9 @@ var BoardColumn = function(){
             var mesF = excellJSON[0][i]["MêsF"];
             var diaF = excellJSON[0][i]["DiaF"];
 
+            console.log("anoI : " + anoI);
+
+        
             if(!anoI) return;
 
             if(anoI < minYear){
