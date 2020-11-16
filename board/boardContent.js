@@ -52,7 +52,7 @@ var BoardContent = function(){
             if(isRepeat){
                 for(var j=0;j<repeatContentArray[repeatID].length + 1;j ++){
 
-                    var currentIndex = (j == 0) ? i : repeatContentArray[repeatID][(j - 1)];
+                    var currentIndex = (j == 0) ? i : repeatContentArray[repeatID][(j - 1)];    
 
                     initMouth = board.boardColunm.getColumnByData(excellJSON[0][currentIndex]["DiaI"],excellJSON[0][currentIndex]["MêsI"],excellJSON[0][currentIndex]["AnoI"]);
 

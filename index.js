@@ -2,6 +2,7 @@
 
 
 var board;
+var popupManager;
 var excellJSON;
 
 readExcel();
@@ -10,6 +11,9 @@ function init(){
 
     board = new boardManager();
     board.init();
+
+    popupManager = new PopupManager();
+    popupManager.init();
 }
 
 function readExcel(){
