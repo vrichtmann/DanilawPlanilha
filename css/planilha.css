@@ -115,11 +115,18 @@ html {
   display: grid;
   padding: 9px 0;
   margin: 0;
-  /* grid-template-columns: repeat(100, 1fr); */
+  /* grid-templ ate-columns: repeat(100, 1fr); */
   grid-gap: 8px 0;
   border-top: 1px solid rgba(221, 221, 221, 0.8);
 }
+
+.gantt__row-bars li:hover {
+  border: 1px solid rgb(165, 164, 164);
+  opacity: 0.9;
+}
+
 .gantt__row-bars li {
+  border: 1px solid rgb(66, 66, 66);
   font-weight: 500;
   text-align: left;
   font-size: 14px;

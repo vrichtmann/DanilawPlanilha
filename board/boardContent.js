@@ -54,8 +54,6 @@ var BoardContent = function(){
 
                     var currentIndex = (j == 0) ? i : repeatContentArray[repeatID][(j - 1)];
 
-                    console.log("currentIndex : " + currentIndex);
-
                     initMouth = board.boardColunm.getColumnByData(excellJSON[0][currentIndex]["DiaI"],excellJSON[0][currentIndex]["MêsI"],excellJSON[0][currentIndex]["AnoI"]);
 
                     finalMouth = board.boardColunm.getColumnByData(excellJSON[0][currentIndex]["DiaF"],excellJSON[0][currentIndex]["MêsF"],excellJSON[0][currentIndex]["AnoF"]);
@@ -69,12 +67,19 @@ var BoardContent = function(){
                     description =  excellJSON[0][currentIndex]["Descrição"] == null ? defaultMenssage : excellJSON[0][currentIndex]["Descrição"];
 
                     if(excellJSON[0][currentIndex]["DiaI"] != null){
-                        boardContentTXT += "          <li style='grid-column: " + initMouth + "/" + (finalMouth + 1) + "; background-color: rgb(" + excellJSON[0][currentIndex]["Color"] + ");' " + isStripes + "'>" + description + "</li>";
+                        
+                        var initDataTXT = excellJSON[0][currentIndex]["DiaI"] + "/" + excellJSON[0][currentIndex]["MêsI"] + "/" + excellJSON[0][currentIndex]["AnoI"];
+                        var finalDataTXT = excellJSON[0][currentIndex]["DiaF"] + "/" + excellJSON[0][currentIndex]["MêsF"] + "/" + excellJSON[0][currentIndex]["AnoF"];
+
+                        boardContentTXT += "     <li class='tooltip' style='grid-column: " + initMouth + "/" + (finalMouth + 1) + "; background-color: rgb(" + excellJSON[0][currentIndex]["Color"] + ");' " + isStripes + "'>" + description +  " <span class='tooltiptext'>"+ initDataTXT + " - " + finalDataTXT+"</span>" + "</li>";
                     }
                 }
             }else{
                 if(excellJSON[0][i]["DiaI"] != null){
-                    boardContentTXT += "          <li style='grid-column: " + initMouth + "/" + (finalMouth + 1) + "; background-color: rgb(" + excellJSON[0][i]["Color"] + ");' " + isStripes + "'>" + description + "</li>";
+                    var initDataTXT = excellJSON[0][i]["DiaI"] + "/" + excellJSON[0][i]["MêsI"] + "/" + excellJSON[0][i]["AnoI"];
+                    var finalDataTXT = excellJSON[0][i]["DiaF"] + "/" + excellJSON[0][i]["MêsF"] + "/" + excellJSON[0][i]["AnoF"];
+
+                    boardContentTXT += "          <li class='tooltip' style='grid-column: " + initMouth + "/" + (finalMouth + 1) + "; background-color: rgb(" + excellJSON[0][i]["Color"] + ");' " + isStripes + "'>" + description + " <span class='tooltiptext'>"+ initDataTXT + " - " + finalDataTXT+"</span>" + "</li>";
                 }
             }
             
