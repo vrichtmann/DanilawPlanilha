@@ -1,22 +1,28 @@
 
 var BoardContent = function(){
 
-    var testeJson = [{name:"Barnard Posselt", initTime: "1", finalTime: "11", color:"#7d3f80"}];
+    var repeatContentArray = new Array();
+    var repeatIdArray = new Array();
 
     this.createBoardContent = function(){
         var boardContentTXT = "";
+        var repetedIdArray = [];
+        this.getRepeatId();
 
         for(var i=0; i < excellJSON[0].length; i++){
-            var defaultMenssage = "";
-            var description =  excellJSON[0][i]["Descrição"] == null ? defaultMenssage : excellJSON[0][i]["Descrição"];
+            var isRepeat = false;
+
+            var repeatID = repeatIdArray.indexOf(excellJSON[0][i]["ID"]);
+            var isExistRepeat = repetedIdArray.indexOf(excellJSON[0][i]["ID"]) != -1;
+
+            if(isExistRepeat)break;
+
+            if(repeatID != -1 && repetedIdArray.indexOf(excellJSON[0][i]["ID"]) == -1){
+                repetedIdArray.push(excellJSON[0][i]["ID"]);
+                isRepeat = true;
+            }
 
             var isRowEmpty = "";
-            var isStripes = "";
-
-            if(excellJSON[0][i]["Stripes"] == "Enable"){
-                isStripes = "class='stripes'";
-            }
-            
 
             if(excellJSON[0][i]["DiaI"] != null){
                 var initMouth = board.boardColunm.getColumnByData(excellJSON[0][i]["DiaI"],excellJSON[0][i]["MêsI"],excellJSON[0][i]["AnoI"]);
@@ -32,15 +38,74 @@ var BoardContent = function(){
             boardContentTXT += excellJSON[0][i]["Evento"];
             boardContentTXT += "        </div>";
             boardContentTXT += "      <ul class='gantt__row-bars' style='grid-template-columns: repeat("+ maxColunm +", 1fr);'>";
+            
 
-            if(excellJSON[0][i]["DiaI"] != null){
-                boardContentTXT += "          <li style='grid-column: " + initMouth + "/" + (finalMouth + 1) + "; background-color: rgb(" + excellJSON[0][i]["Color"] + ");' " + isStripes + "'>" + description + "</li>";
+            var defaultMenssage = "";
+            var description =  excellJSON[0][i]["Descrição"] == null ? defaultMenssage : excellJSON[0][i]["Descrição"];
+
+            var isStripes = "";
+
+            if(excellJSON[0][i]["Stripes"] == "Enable"){
+                isStripes = "class='stripes'";
             }
+
+            if(isRepeat){
+                for(var j=0;j<repeatContentArray[repeatID].length + 1;j ++){
+
+                    var currentIndex = (j == 0) ? i : repeatContentArray[repeatID][(j - 1)];
+
+                    console.log("currentIndex : " + currentIndex);
+
+                    initMouth = board.boardColunm.getColumnByData(excellJSON[0][currentIndex]["DiaI"],excellJSON[0][currentIndex]["MêsI"],excellJSON[0][currentIndex]["AnoI"]);
+
+                    finalMouth = board.boardColunm.getColumnByData(excellJSON[0][currentIndex]["DiaF"],excellJSON[0][currentIndex]["MêsF"],excellJSON[0][currentIndex]["AnoF"]);
+
+                    isStripes = "";
+                    if(excellJSON[0][currentIndex]["Stripes"] == "Enable"){
+                        isStripes = "class='stripes'";
+                    }
+
+                    defaultMenssage = "";
+                    description =  excellJSON[0][currentIndex]["Descrição"] == null ? defaultMenssage : excellJSON[0][currentIndex]["Descrição"];
+
+                    if(excellJSON[0][currentIndex]["DiaI"] != null){
+                        boardContentTXT += "          <li style='grid-column: " + initMouth + "/" + (finalMouth + 1) + "; background-color: rgb(" + excellJSON[0][currentIndex]["Color"] + ");' " + isStripes + "'>" + description + "</li>";
+                    }
+                }
+            }else{
+                if(excellJSON[0][i]["DiaI"] != null){
+                    boardContentTXT += "          <li style='grid-column: " + initMouth + "/" + (finalMouth + 1) + "; background-color: rgb(" + excellJSON[0][i]["Color"] + ");' " + isStripes + "'>" + description + "</li>";
+                }
+            }
+            
             boardContentTXT += "      </ul>";
             boardContentTXT += "    </div>";
         }
 
         return boardContentTXT;
+    }
+
+    this.getRepeatId = function(){
+        var tempRepeatIDArray = new Array();
+
+        repeatIdArray = []
+        repeatContentArray = [];
+
+        for(var i=0; i < excellJSON[0].length; i++){
+            var tempRepeatID = tempRepeatIDArray.indexOf(excellJSON[0][i]["ID"]);
+            if(tempRepeatID == -1){
+                tempRepeatIDArray.push(excellJSON[0][i]["ID"]);
+            }else{
+                var indexRepeat = repeatIdArray.indexOf(tempRepeatIDArray[tempRepeatID]);
+
+                if(indexRepeat == -1){
+                    repeatIdArray.push(excellJSON[0][i]["ID"]);
+                    repeatContentArray.push([i])
+                }else{
+                    repeatContentArray[indexRepeat].push(i);
+                }
+            }
+        }
     }
 
 }
