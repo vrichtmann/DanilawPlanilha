@@ -71,7 +71,7 @@ var BoardContent = function(){
                         var initDataTXT = excellJSON[0][currentIndex]["DiaI"] + "/" + excellJSON[0][currentIndex]["MêsI"] + "/" + excellJSON[0][currentIndex]["AnoI"];
                         var finalDataTXT = excellJSON[0][currentIndex]["DiaF"] + "/" + excellJSON[0][currentIndex]["MêsF"] + "/" + excellJSON[0][currentIndex]["AnoF"];
 
-                        boardContentTXT += "     <li class='tooltip' style='grid-column: " + initMouth + "/" + (finalMouth + 1) + "; background-color: rgb(" + excellJSON[0][currentIndex]["Color"] + ");' " + isStripes + "'>" + description +  " <span class='tooltiptext'>"+ initDataTXT + " - " + finalDataTXT+"</span>" + "</li>";
+                        boardContentTXT += "     <li onclick='openPopupInfo(" + currentIndex +")' class='tooltip' style='grid-column: " + initMouth + "/" + (finalMouth + 1) + "; background-color: rgb(" + excellJSON[0][currentIndex]["Color"] + ");' " + isStripes + "'>" + description +  " <span class='tooltiptext'>"+ initDataTXT + " - " + finalDataTXT+"</span>" + "</li>";
                     }
                 }
             }else{
@@ -79,7 +79,7 @@ var BoardContent = function(){
                     var initDataTXT = excellJSON[0][i]["DiaI"] + "/" + excellJSON[0][i]["MêsI"] + "/" + excellJSON[0][i]["AnoI"];
                     var finalDataTXT = excellJSON[0][i]["DiaF"] + "/" + excellJSON[0][i]["MêsF"] + "/" + excellJSON[0][i]["AnoF"];
 
-                    boardContentTXT += "          <li class='tooltip' style='grid-column: " + initMouth + "/" + (finalMouth + 1) + "; background-color: rgb(" + excellJSON[0][i]["Color"] + ");' " + isStripes + "'>" + description + " <span class='tooltiptext'>"+ initDataTXT + " - " + finalDataTXT+"</span>" + "</li>";
+                    boardContentTXT += "          <li onclick='openPopupInfo(" + i +")' class='tooltip' style='grid-column: " + initMouth + "/" + (finalMouth + 1) + "; background-color: rgb(" + excellJSON[0][i]["Color"] + ");' " + isStripes + "'>" + description + " <span class='tooltiptext'>"+ initDataTXT + " - " + finalDataTXT+"</span>" + "</li>";
                 }
             }
             
