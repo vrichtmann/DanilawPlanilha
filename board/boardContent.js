@@ -46,7 +46,7 @@ var BoardContent = function(){
             var isStripes = "";
 
             if(excellJSON[0][i]["Stripes"] == "Enable"){
-                isStripes = "class='stripes'";
+                isStripes = "stripes";
             }
 
             if(isRepeat){
@@ -60,7 +60,7 @@ var BoardContent = function(){
 
                     isStripes = "";
                     if(excellJSON[0][currentIndex]["Stripes"] == "Enable"){
-                        isStripes = "class='stripes'";
+                        isStripes = "stripes";
                     }
 
                     defaultMenssage = "";
@@ -71,7 +71,7 @@ var BoardContent = function(){
                         var initDataTXT = excellJSON[0][currentIndex]["DiaI"] + "/" + excellJSON[0][currentIndex]["MêsI"] + "/" + excellJSON[0][currentIndex]["AnoI"];
                         var finalDataTXT = excellJSON[0][currentIndex]["DiaF"] + "/" + excellJSON[0][currentIndex]["MêsF"] + "/" + excellJSON[0][currentIndex]["AnoF"];
 
-                        boardContentTXT += "     <li onclick='openPopupInfo(" + currentIndex +")' class='tooltip' style='grid-column: " + initMouth + "/" + (finalMouth + 1) + "; background-color: rgb(" + excellJSON[0][currentIndex]["Color"] + ");' " + isStripes + "'>" + description +  " <span class='tooltiptext'>"+ initDataTXT + " - " + finalDataTXT+"</span>" + "</li>";
+                        boardContentTXT += "     <li onclick='openPopupInfo(" + currentIndex +")' class='tooltip " + isStripes + "' style='grid-column: " + initMouth + "/" + (finalMouth + 1) + "; background-color: rgb(" + excellJSON[0][currentIndex]["Color"] + ");' " + "'>" + description +  " <span class='tooltiptext'>"+ initDataTXT + " - " + finalDataTXT+"</span>" + "</li>";
                     }
                 }
             }else{
@@ -79,7 +79,7 @@ var BoardContent = function(){
                     var initDataTXT = excellJSON[0][i]["DiaI"] + "/" + excellJSON[0][i]["MêsI"] + "/" + excellJSON[0][i]["AnoI"];
                     var finalDataTXT = excellJSON[0][i]["DiaF"] + "/" + excellJSON[0][i]["MêsF"] + "/" + excellJSON[0][i]["AnoF"];
 
-                    boardContentTXT += "          <li onclick='openPopupInfo(" + i +")' class='tooltip' style='grid-column: " + initMouth + "/" + (finalMouth + 1) + "; background-color: rgb(" + excellJSON[0][i]["Color"] + ");' " + isStripes + "'>" + description + " <span class='tooltiptext'>"+ initDataTXT + " - " + finalDataTXT+"</span>" + "</li>";
+                    boardContentTXT += "          <li onclick='openPopupInfo(" + i +")' class='tooltip " + isStripes+ "' style='grid-column: " + initMouth + "/" + (finalMouth + 1) + "; background-color: rgb(" + excellJSON[0][i]["Color"] + ");' " + "'>" + description + " <span class='tooltiptext'>"+ initDataTXT + " - " + finalDataTXT+"</span>" + "</li>";
                 }
             }
             
