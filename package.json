@@ -1,10 +1,19 @@
 {
-  "name": "DanilawPlanilha",
+  "name": "dani-law-planilha",
+  "productName": "DanilawPlanilha",
   "version": "1.0.0",
   "description": "Produto que será desenvolvido para os clintes da MicroPower",
   "main": "main.js",
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make-mac": "npx @electron-forge/cli make --platform darwin",
+    "make-linux": "npx @electron-forge/cli make --platform linux --targets deb",
+    "make": "npx @electron-forge/cli make"  
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.54",
@@ -13,13 +22,6 @@
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
     "electron": "^11.1.1"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
-
   },
   "repository": {
     "type": "git",
@@ -34,12 +36,14 @@
   "homepage": "https://github.com/vrichtmann/DanilawPlanilha#readme",
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+        "icon": "./build/icon"
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "DanilawPlanilha"
+            "name": "dani_law_planilha"
           }
         },
         {
@@ -50,7 +54,12 @@
         },
         {
           "name": "@electron-forge/maker-deb",
-          "config": {}
+          "config": {
+            "name": "@electron-forge/maker-deb",
+            "config": {
+              "icon": "./build/icon.png"
+            }
+          }
         },
         {
           "name": "@electron-forge/maker-rpm",

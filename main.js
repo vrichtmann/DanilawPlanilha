@@ -1,14 +1,19 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow} = require('electron')
+const path = require('path')
+
+if(require('electron-squirrel-startup')) return;
 
 function createWindow () {
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,    
-    webPreferences: {
-      nodeIntegration: false,
-      devTools: true
-    }
-  })
+    const win = new BrowserWindow({
+        width: 1366,
+        height: 768,
+        icon: path.join(app.getAppPath(), 'build/icon.png'),
+        webPreferences: {
+          worldSafeExecuteJavaScript: true,
+          contextIsolation: true,
+          preload: path.join(app.getAppPath(), 'preload.js')
+        }
+    })
 
   win.loadFile('index.html')
 }
@@ -21,8 +26,3 @@ app.on('window-all-closed', () => {
   }
 })
 
-app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow()
-  }
-})
