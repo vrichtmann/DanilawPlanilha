@@ -1,14 +1,9 @@
-const path = require('path')
-
 const { app, BrowserWindow } = require('electron')
-
-if(require('electron-squirrel-startup')) return;
 
 function createWindow () {
   const win = new BrowserWindow({
     width: 800,
-    height: 600,
-    icon: path.join(app.getAppPath(), 'assets/icon.png'),
+    height: 600,    
     webPreferences: {
       nodeIntegration: false,
       devTools: true
@@ -31,4 +26,3 @@ app.on('activate', () => {
     createWindow()
   }
 })
-
