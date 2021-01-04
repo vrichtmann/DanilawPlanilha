@@ -1,0 +1,61 @@
+{
+  "name": "DanilawPlanilha",
+  "version": "1.0.0",
+  "description": "Produto que será desenvolvido para os clintes da MicroPower",
+  "main": "main.js",
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "electron": "^11.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "npx @electron-forge/cli make"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vrichtmann/DanilawPlanilha.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vrichtmann/DanilawPlanilha/issues"
+  },
+  "homepage": "https://github.com/vrichtmann/DanilawPlanilha#readme",
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "DanilawPlanilha"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
+}

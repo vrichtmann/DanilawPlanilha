@@ -1,6 +1,3 @@
-
-
-
 var board;
 var popupManager;
 var excellJSON;
