@@ -1,5 +1,5 @@
 {
-  "name": "dani-law-planilha",
+  "name": "DanilawPlanilha",
   "productName": "DanilawPlanilha",
   "version": "1.0.0",
   "description": "Produto que será desenvolvido para os clintes da MicroPower",
@@ -13,7 +13,7 @@
     "package": "electron-forge package",
     "make-mac": "npx @electron-forge/cli make --platform darwin",
     "make-linux": "npx @electron-forge/cli make --platform linux --targets deb",
-    "make": "npx @electron-forge/cli make"  
+    "make": "electron-forge make"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.54",
@@ -28,7 +28,7 @@
     "url": "git+https://github.com/vrichtmann/DanilawPlanilha.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Victor",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/vrichtmann/DanilawPlanilha/issues"
